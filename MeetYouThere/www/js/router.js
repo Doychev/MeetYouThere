@@ -7,7 +7,7 @@ define(function(require) {
   var MyModel = require("models/MyModel");
   var ProfileModel = require("models/ProfileModel");
   var StructureView = require("views/StructureView");
-  var MyView = require("views/pages/MyView");
+  var Dashboard = require("views/pages/Dashboard");
   var MapView = require("views/pages/MapView");
   var FuckyouView = require("views/pages/FuckyouView");
   
@@ -46,12 +46,12 @@ define(function(require) {
     routes: {
       // the default is the structure view
       "": "showStructure",
-      "myview": "myView",
+      "dashboard": "dashboard",
       "map": "map",
       "fuckyouview": "fuckyouView"
     },
 
-    firstView: "myview",
+    firstView: "dashboard",
 
     initialize: function(options) {
 		
@@ -76,7 +76,7 @@ define(function(require) {
       this.currentView = undefined;
     },
 
-    myView: function() {
+    dashboard: function() {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav1");
       // create a model with an arbitrary attribute for testing the template engine
@@ -84,7 +84,7 @@ define(function(require) {
         key: "testValue"
       });
       // create the view
-      var page = new MyView({
+      var page = new Dashboard({
         model: model
       });
       // show the view

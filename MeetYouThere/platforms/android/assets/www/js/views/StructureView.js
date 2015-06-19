@@ -11,7 +11,7 @@ define(function(require) {
     id: "main",
 
     events: {
-      "tap #nav1": "myView",
+      "tap #nav1": "dashboard",
       "tap #nav2": "map",
       "tap #nav3": "fuckyouView"
     },
@@ -58,8 +58,8 @@ define(function(require) {
       });
     },
 
-    myView: function(event) {
-      Backbone.history.navigate("myview", {
+    dashboard: function(event) {
+      Backbone.history.navigate("dashboard", {
         trigger: true
       });
     }
