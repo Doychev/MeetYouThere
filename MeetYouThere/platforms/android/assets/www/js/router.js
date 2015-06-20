@@ -15,6 +15,8 @@ define(function(require) {
   var EventsView = require("views/pages/EventsView");
   var FriendsView = require("views/pages/FriendsView");
   var InfoView = require("views/pages/InfoView");
+  var FaqView = require("views/pages/FaqView");
+  var ContactView = require("views/pages/ContactView");
   
   function initializeSpin() {
 	  var opts = {
@@ -56,6 +58,8 @@ define(function(require) {
       "eventsview": "eventsView",
       "friendsview": "friendsView",
       "infoview": "infoView",
+      "faqview": "faqView",
+      "contactview": "contactView",
       "fuckyouview": "fuckyouView"
     },
 
@@ -169,7 +173,6 @@ define(function(require) {
     },
 	
     friendsView: function() {
-		alert("friends");
 	this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
 		alert("friends2");
@@ -185,12 +188,37 @@ define(function(require) {
     },
 
     infoView: function() {
-		alert("info");
 	this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
 	  var model = new MyModel();
       // create the view
       var page = new InfoView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+		console.log("res ", res);
+    },
+
+    faqView: function() {
+	//this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new FaqView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+		console.log("res ", res);
+    },
+
+    contactView: function() {
+	//this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new ContactView({
         model: model
       });
       // show the view

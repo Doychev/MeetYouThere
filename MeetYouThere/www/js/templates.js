@@ -14,5 +14,8 @@ define({
     eventsview: "templates/eventsview.html",
     friendsview: "templates/friendsview.html",
     infoview: "templates/infoview.html",
+    faqview: "templates/faqview.html",
+    contactview: "templates/contactview.html",
+    profileview: "templates/profileview.html",
     fuckyouview: "templates/fuckyouview.html"
 });
