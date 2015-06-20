@@ -17,5 +17,6 @@ define({
     faqview: "templates/faqview.html",
     contactview: "templates/contactview.html",
     profileview: "templates/profileview.html",
+    loginview: "templates/loginview.html",
     fuckyouview: "templates/fuckyouview.html"
 });

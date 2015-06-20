@@ -18,6 +18,7 @@ define(function(require) {
   var FaqView = require("views/pages/FaqView");
   var ContactView = require("views/pages/ContactView");
   var ProfileView = require("views/pages/ProfileView");
+  var LoginView = require("views/pages/LoginView");
   
   function initializeSpin() {
 	  var opts = {
@@ -62,6 +63,7 @@ define(function(require) {
       "faqview": "faqView",
       "contactview": "contactView",
       "profileview": "profileView",
+      "loginview": "loginview",
       "fuckyouview": "fuckyouView"
     },
 
@@ -234,6 +236,19 @@ define(function(require) {
 	  var model = new MyModel();
       // create the view
       var page = new ProfileView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+		console.log("res ", res);
+    },
+
+    loginView: function() {
+	//this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new LoginView({
         model: model
       });
       // show the view
