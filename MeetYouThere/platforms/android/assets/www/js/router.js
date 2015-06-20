@@ -181,7 +181,6 @@ define(function(require) {
     },
 
     infoView: function() {
-		alert("infoview");
 	this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
 	  var model = new MyModel();
