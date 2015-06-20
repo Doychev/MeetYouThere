@@ -7,6 +7,7 @@ define(function(require) {
   var Event = require("models/Event");
   var Events = require("collections/Events");
   var ProfileModel = require("models/ProfileModel");
+  var MyModel = require("models/MyModel");
   var StructureView = require("views/StructureView");
   var Dashboard = require("views/pages/Dashboard");
   var MapView = require("views/pages/MapView");
@@ -168,8 +169,10 @@ define(function(require) {
     },
 	
     friendsView: function() {
+		alert("friends");
 	this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
+		alert("friends2");
 	  var model = new MyModel();
       // create the view
       var page = new FriendsView({
@@ -177,10 +180,12 @@ define(function(require) {
       });
       // show the view
       this.changePage(page);
+		alert("friends3");
 		console.log("res ", res);
     },
 
     infoView: function() {
+		alert("info");
 	this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
 	  var model = new MyModel();
