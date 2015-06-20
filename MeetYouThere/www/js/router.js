@@ -4,12 +4,16 @@ define(function(require) {
   var Backbone = require("backbone");
   var Spinner = require("spin");
   require("baasbox");
-  var MyModel = require("models/MyModel");
+  var Event = require("models/Event");
+  var Events = require("collections/Events");
   var ProfileModel = require("models/ProfileModel");
   var StructureView = require("views/StructureView");
   var Dashboard = require("views/pages/Dashboard");
   var MapView = require("views/pages/MapView");
   var FuckyouView = require("views/pages/FuckyouView");
+  var EventsView = require("views/pages/EventsView");
+  var FriendsView = require("views/pages/FriendsView");
+  var InfoView = require("views/pages/InfoView");
   
   function initializeSpin() {
 	  var opts = {
@@ -48,6 +52,9 @@ define(function(require) {
       "": "showStructure",
       "dashboard": "dashboard",
       "map": "map",
+      "eventsview": "eventsView",
+      "friendsview": "friendsView",
+      "infoview": "infoView",
       "fuckyouview": "fuckyouView"
     },
 
@@ -79,16 +86,27 @@ define(function(require) {
     dashboard: function() {
       // highlight the nav1 tab bar element as the current one
       this.structureView.setActiveTabBarElement("nav1");
+	var routerCopy = this;
       // create a model with an arbitrary attribute for testing the template engine
-      var model = new MyModel({
-        key: "testValue"
-      });
+	BaasBox.loadCollectionWithParams("events", {page: 0, recordsPerPage: BaasBox.pagelength})
+	  .done(function(res) {
+	// highlight the nav1 tab bar element as the current one
+      routerCopy.structureView.setActiveTabBarElement("nav1");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new Event(res[0]);
+//	  var model = new Events(res);
+//	  alert(JSON.stringify(model, null, 4));
       // create the view
       var page = new Dashboard({
         model: model
       });
       // show the view
-      this.changePage(page);
+      routerCopy.changePage(page);
+		console.log("res ", res);
+	  })
+	  .fail(function(error) {
+		console.log("error ", error);
+	  })
     },
 
     map: function() {
@@ -110,7 +128,7 @@ define(function(require) {
 	BaasBox.loadCollectionWithParams("contacts", {page: 0, recordsPerPage: BaasBox.pagelength, where:"name='konstantinos'"})
 	  .done(function(res) {
 	// highlight the nav1 tab bar element as the current one
-      routerCopy.structureView.setActiveTabBarElement("nav3");
+      routerCopy.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
 	  var model = new ProfileModel(res[0]);
       // create the view
@@ -125,6 +143,55 @@ define(function(require) {
 		console.log("error ", error);
 	  })
     },
+	
+    eventsView: function() {
+	// Version with pagination
+	var routerCopy = this;
+	BaasBox.loadCollectionWithParams("events", {page: 0, recordsPerPage: BaasBox.pagelength, where:"name='konstantinos'"})
+	  .done(function(res) {
+	// highlight the nav1 tab bar element as the current one
+      routerCopy.structureView.setActiveTabBarElement("nav3");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new ProfileModel(res[0]);
+      // create the view
+      var page = new EventsView({
+        model: model
+      });
+      // show the view
+      routerCopy.changePage(page);
+		console.log("res ", res);
+
+	  })
+	  .fail(function(error) {
+		console.log("error ", error);
+	  })
+    },
+	
+    friendsView: function() {
+	this.structureView.setActiveTabBarElement("nav4");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new FriendsView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+		console.log("res ", res);
+    },
+
+    infoView: function() {
+	this.structureView.setActiveTabBarElement("nav5");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new InfoView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+		console.log("res ", res);
+    },
 
     // load the structure view
     showStructure: function() {
@@ -135,6 +202,7 @@ define(function(require) {
         this.structureView.trigger("inTheDOM");
       }
       // go to first view
+	  //alert(JSON.stringify(this, null, 4));
       this.navigate(this.firstView, {trigger: true});
     },
 

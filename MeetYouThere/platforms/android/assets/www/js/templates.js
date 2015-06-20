@@ -11,5 +11,8 @@
 define({
     structure: "templates/structure.html",
     dashboard: "templates/dashboard.html",
+    eventsview: "templates/eventsview.html",
+    friendsview: "templates/friendsview.html",
+    infoview: "templates/infoview.html",
     fuckyouview: "templates/fuckyouview.html"
 });

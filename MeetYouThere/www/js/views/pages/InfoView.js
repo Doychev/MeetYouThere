@@ -1,18 +1,18 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var Event = require("models/Event");
+  var MyModel = require("models/MyModel");
   var Utils = require("utils");
 
-  var Dashboard = Utils.Page.extend({
+  var InfoView = Utils.Page.extend({
 
-    constructorName: "Dashboard",
+    constructorName: "InfoView",
 
-    model: Event,
+    model: MyModel,
 
     initialize: function() {
       // load the precompiled template
-      this.template = Utils.templates.dashboard;
+      this.template = Utils.templates.infoview;
       // here we can register to inTheDOM or removing events
       // this.listenTo(this, "inTheDOM", function() {
       //   $('#content').on("swipe", function(data){
@@ -24,7 +24,7 @@ define(function(require) {
       // by convention, all the inner views of a view must be stored in this.subViews
     },
 
-    id: "dashboard",
+    id: "infoview",
     className: "i-g page",
 
     events: {
@@ -43,6 +43,6 @@ define(function(require) {
     }
   });
 
-  return Dashboard;
+  return InfoView;
 
 });

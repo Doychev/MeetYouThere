@@ -13,7 +13,9 @@ define(function(require) {
     events: {
       "tap #nav1": "dashboard",
       "tap #nav2": "map",
-      "tap #nav3": "fuckyouView"
+      "tap #nav3": "eventsView",
+      "tap #nav4": "friendsView",
+      "tap #nav5": "infoView",
     },
 
     initialize: function(options) {
@@ -54,6 +56,24 @@ define(function(require) {
 
     fuckyouView: function(event) {
       Backbone.history.navigate("fuckyouview", {
+        trigger: true
+      });
+    },
+
+    eventsView: function(event) {
+      Backbone.history.navigate("eventsview", {
+        trigger: true
+      });
+    },
+
+    friendsView: function(event) {
+      Backbone.history.navigate("friendsview", {
+        trigger: true
+      });
+    },
+
+    infoView: function(event) {
+      Backbone.history.navigate("infoview", {
         trigger: true
       });
     },

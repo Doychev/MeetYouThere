@@ -1,14 +1,14 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var MyModel = require("models/MyModel");
+  var Event = require("models/Event");
   var Utils = require("utils");
 
   var Dashboard = Utils.Page.extend({
 
     constructorName: "Dashboard",
 
-    model: MyModel,
+    model: Event,
 
     initialize: function() {
       // load the precompiled template
