@@ -54,12 +54,6 @@ define(function(require) {
       });
     },
 
-    fuckyouView: function(event) {
-      Backbone.history.navigate("fuckyouview", {
-        trigger: true
-      });
-    },
-
     eventsView: function(event) {
       Backbone.history.navigate("eventsview", {
         trigger: true

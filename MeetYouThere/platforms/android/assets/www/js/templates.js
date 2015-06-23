@@ -12,9 +12,11 @@ define({
     structure: "templates/structure.html",
     dashboard: "templates/dashboard.html",
     eventsview: "templates/eventsview.html",
+    eventview: "templates/eventview.html",
     friendsview: "templates/friendsview.html",
     infoview: "templates/infoview.html",
     faqview: "templates/faqview.html",
     contactview: "templates/contactview.html",
-    fuckyouview: "templates/fuckyouview.html"
+    profileview: "templates/profileview.html",
+    loginview: "templates/loginview.html"
 });

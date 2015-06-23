@@ -28,7 +28,8 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+      "tap #info-faq-link": "faqView",
+      "tap #info-contact-link": "contactView",
     },
 
     render: function() {
@@ -36,11 +37,19 @@ define(function(require) {
       return this;
     },
 
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
+	faqView: function(event) {
+      Backbone.history.navigate("faqview", {
         trigger: true
       });
-    }
+    },
+
+    contactView: function(event) {
+      Backbone.history.navigate("contactview", {
+        trigger: true
+      });
+    },
+
+
   });
 
   return InfoView;
