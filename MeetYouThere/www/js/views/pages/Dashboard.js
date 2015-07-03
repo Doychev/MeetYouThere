@@ -27,13 +27,33 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+		"tap .eventrow": "eventRow",
+		"tap #searchEventButton": "searchEvent",
+		"tap #createEventButton": "createEvent"
     },
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
+
+    searchEvent: function() {
+      Backbone.history.navigate("eventsview", {
+        trigger: true
+      });
+    },
+
+    createEvent: function() {
+      Backbone.history.navigate("createeventview", {
+        trigger: true
+      });
+    },
+
+    eventRow: function(event) {
+		Backbone.history.navigate("singleeventview/" + event.currentTarget.getAttribute('data-id'), {
+			trigger: true
+		});
+	},
 
     loadData: function() {
       //load the data
@@ -46,10 +66,17 @@ define(function(require) {
       var page = new EventView({
         model: model
       });
-	  var pageHtml = page.render();
-	  var bodyEl = $(".events");
-	  spinner.stop();
-	  bodyEl.append(pageHtml.el);
+		var pageHtml = page.render();
+		var bodyEl = $(".events");
+		bodyEl.append(pageHtml.el);
+
+		for (var i = 0; i < res.length; i++){
+			//put the id of the user as data for the div
+			var row = $(".eventrow")[i];
+			row.setAttribute('data-id',res[i].id);	  
+		}
+		
+		spinner.stop();
       })
       .fail(function(error) {
         console.log("error ", error);

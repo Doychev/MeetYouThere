@@ -12,6 +12,8 @@ define(function(require) {
   var Dashboard = require("views/pages/Dashboard");
   var MapView = require("views/pages/MapView");
   var EventsView = require("views/pages/EventsView");
+  var CreateEventView = require("views/pages/CreateEventView");
+  var SingleEventView = require("views/pages/SingleEventView");
   var FriendsView = require("views/pages/FriendsView");
   var InfoView = require("views/pages/InfoView");
   var FaqView = require("views/pages/FaqView");
@@ -20,18 +22,18 @@ define(function(require) {
   var LoginView = require("views/pages/LoginView");
   var spinner = require("spinner");
   
-  // Handlebars.registerHelper("debug", function(optionalValue) {
-  // // console.log("Current Context");
-  // // console.log("====================");
-  // // console.log(this);
-  // alert(JSON.stringify(this, null, 4));
- 
-  // if (optionalValue) {
-    // console.log("Value");
-    // console.log("====================");
-    // console.log(optionalValue);
-  // }
-// });
+   Handlebars.registerHelper("debug", function(optionalValue) {
+   // console.log("Current Context");
+   // console.log("====================");
+    console.log(JSON.stringify(this, null, 4));
+   //alert(JSON.stringify(this, null, 4));
+   
+    // if (optionalValue) {
+     // console.log("Value");
+     // console.log("====================");
+     // console.log(optionalValue);
+   // }
+ });
     
   var AppRouter = Backbone.Router.extend({
 
@@ -43,6 +45,9 @@ define(function(require) {
       "dashboard": "dashboard",
       "map": "map",
       "eventsview": "eventsView",
+      "createeventview": "createEventView",
+      "singleeventview": "singleEventView",
+      "singleeventview/:id": "singleEventView",
       "friendsview": "friendsView",
       "infoview": "infoView",
       "faqview": "faqView",
@@ -93,6 +98,34 @@ define(function(require) {
       this.structureView.setActiveTabBarElement("nav2");
       // create the view and show it
       var page = new MapView();
+      this.changePage(page);
+    },
+	
+    createEventView: function() {
+		// highlight the nav1 tab bar element as the current one
+      //this.structureView.setActiveTabBarElement("nav3");
+		// create a model with an arbitrary attribute for testing the template engine
+	  var model = new Events();
+      // create the view
+      var page = new CreateEventView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+    },
+	
+    singleEventView: function(id) {
+		// highlight the nav1 tab bar element as the current one
+      //this.structureView.setActiveTabBarElement("nav3");
+		// create a model with an arbitrary attribute for testing the template engine
+	  var model = new Event({
+			id: id
+	  });
+      // create the view
+      var page = new SingleEventView({
+        model: model
+      });
+      // show the view
       this.changePage(page);
     },
 	
