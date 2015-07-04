@@ -24,13 +24,34 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+	  "tap #submitEventButton": "createEvent"
     },
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
+	
+	createEvent: function() {		
+		var form = document.getElementById("createEventForm");
+		var event = new Event();
+        var i;
+        for (i = 0; i < form.length - 2; i++) {
+          event.set(form.elements[i].name, form.elements[i].value);
+        }
+		alert(1);
+		BaasBox.save(event, "events")
+		.done(function(res) {
+		alert(2);
+			console.log("res ", res);
+		})
+		.fail(function(error) {
+		alert(3);
+			console.log("error ", error);
+		});
+		alert(4);
+		
+	}
   });
 
   return CreateEventView;

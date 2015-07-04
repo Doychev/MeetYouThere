@@ -1,21 +1,21 @@
 <!--create event view-->
 <h1 class="createEvent">Create event</h1>
 <div class="i-12"><hr></div>
-<form class="createEvent">
-  <input type="text" placeholder="Full name"/>
-  <input type="text" list="events" placeholder="Create event from the list"/>
+<form id="createEventForm" class="createEvent">
+  <input type="text" name="name" placeholder="Full name"/>
+  <input type="text" name="type" list="events" placeholder="Create event from the list"/>
   <datalist id="events">
   <option>Sport</option>
   <option>Party</option>
   </datalist>
   <!--<input type="date" id="myDate" />-->
-  <input type="datetime-local" placeholder="Date and time">
-  <input type="number" placeholder="Number of people"/>
-  <input type="text" placeholder="Location"/>
-  <textarea rows="5" placeholder="Description"></textarea>
+  <input type="datetime-local" name="time" placeholder="Date and time">
+  <input type="number" name="peopleCount" placeholder="Number of people"/>
+  <input type="text" name="location" placeholder="Location"/>
+  <textarea rows="5" name="description" placeholder="Description"></textarea>
   <!--<button class="btn btn-positive btn-block">Choose existing</button>--> 
 <div class="i-12">
-<button class="btnCreate btn-positive">Create event</button>
+<button id="submitEventButton" class="btnCreate btn-positive">Create event</button>
 <button class="btnCreate btn-negative">Cancel</button>
 </div>
 </form>

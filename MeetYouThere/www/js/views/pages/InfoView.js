@@ -29,7 +29,7 @@ define(function(require) {
 
     events: {
       "tap #info-faq-link": "faqView",
-      "tap #info-contact-link": "contactView",
+      "tap #info-contact-link": "infoView",
     },
 
     render: function() {
@@ -43,8 +43,8 @@ define(function(require) {
       });
     },
 
-    contactView: function(event) {
-      Backbone.history.navigate("contactview", {
+    infoView: function(event) {
+      Backbone.history.navigate("infoview", {
         trigger: true
       });
     }, 
