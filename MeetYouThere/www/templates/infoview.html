@@ -19,19 +19,15 @@
   </a>
 </div>
 <div class="i-12"><hr></div>
-<form>
-<p class="table">Name:<br>
-<input type="text" name="name"></input></p>
-<p class="table">Email:<br>
-<input type="email" name="name"></input></p>
-<p class="table">Number:<br>
-<input type="number" name="name"></input></p>
-<p class="table">Message:<br>
-<textarea name="textarea" rows="10"></textarea></p>
+<h1 class="createEvent">Contact us</h1>
+<div class="i-12"><hr></div>
+<form class="createEvent" name="htmlform" method="post" action="html_form_send.php">
+<input type="text" name="first_name" placeholder="Name"/>
+<input type="email" name="name" placeholder="Email"/>
+<input type="number" name="name" placeholder="Number"/>
+<textarea name="textarea" rows="10" placeholder="Message"></textarea>
+<div class="i-12">
+<button type="submit "class="btnContact btn-positive">Send</button>
+<button class="btnContact btn-negative">Cancel</button>
+</div>
 </form>
-<div class="i-5">
-<input type="Submit" value="Send"></input>
-</div>
-<div class="i-5">
-<input type="reset" value="Cancel"></input>
-</div>

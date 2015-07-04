@@ -21,7 +21,7 @@ define(function(require) {
     },
 
     id: "eventview",
-    className: "i-g page",
+    //className: "i-g page",
 
     events: {
       "tap #goToMap": "goToMap"

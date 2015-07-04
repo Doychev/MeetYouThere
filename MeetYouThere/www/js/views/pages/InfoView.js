@@ -47,7 +47,8 @@ define(function(require) {
       Backbone.history.navigate("contactview", {
         trigger: true
       });
-    },
+    }, 
+	
 
 
   });

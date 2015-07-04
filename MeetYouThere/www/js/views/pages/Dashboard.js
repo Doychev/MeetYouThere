@@ -50,7 +50,7 @@ define(function(require) {
     },
 
     eventRow: function(event) {
-		Backbone.history.navigate("singleeventview/" + event.currentTarget.getAttribute('data-id'), {
+		Backbone.history.navigate("singleeventview" + event.currentTarget.getAttribute('data-id'), {
 			trigger: true
 		});
 	},

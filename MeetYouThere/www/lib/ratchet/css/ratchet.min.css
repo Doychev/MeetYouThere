@@ -129,7 +129,8 @@ tr {
  }
  
  .icon-pause:before{content:'\e830'}.icon-person:before{content:'\e832'}.icon-play:before{content:'\e816'}.icon-plus:before{content:'\e817'}.icon-refresh:before{content:'\e825'}.icon-search:before{content:'\e819'}.icon-share:before{content:'\e81a'}.icon-sound:before{content:'\e827'}.icon-sound2:before{content:'\e828'}.icon-sound3:before{content:'\e80b'}.icon-sound4:before{content:'\e80c'}.icon-star-filled:before{content:'\e81b'}.icon-star:before{content:'\e81c'}.icon-stop:before{content:'\e81d'}.icon-trash:before{content:'\e81e'}.icon-up-nav:before{content:'\e81f'}.icon-up:before{content:'\e80d'}.icon-right-nav:before{content:'\e818'}.icon-right:before{content:'\e826'}.icon-down-nav:before{content:'\e814'}.icon-down:before{content:'\e820'}.icon-left-nav:before{content:'\e82d'}.icon-left:before{content:'\e822'}*/ 
- .icon-home:before {
+ 
+.icon-home:before {
 	content: "\e900";
 }
 .icon-home2:before {
@@ -1603,7 +1604,6 @@ tr {
 	content: "\eaea";
 }
 
-
 .myButton1 {
 	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2dabf9), color-stop(1, #0688fa));
 	background:-moz-linear-gradient(top, #2dabf9 5%, #0688fa 100%);
@@ -1704,6 +1704,7 @@ background-color:red;
 
 p.table {
 margin-left:5px;
+text-align:center;
 }
 
 img.map {
@@ -1723,4 +1724,56 @@ div.img {
 
 figcaption {
 font-size: 12px;
+}
+
+tr {
+width:80%;
+}
+
+form.createEvent {
+margin:0px 5px;
+text-align: center;
+}
+
+h1.createEvent {
+	text-align: center;
+	padding-top:15px;
+}
+
+h1.createEvent a { 
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size:38px;
+    color:#333;
+}
+
+.btnContact {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 0px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 14px 58px 17px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.btnCreate {
+    position: relative;
+    display: inline-block;
+    padding: 14px 42px 17px;
+    margin-bottom: 0px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    border-radius: 4px;
+	font-weight: bold;
 }
