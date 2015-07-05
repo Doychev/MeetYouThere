@@ -10,18 +10,20 @@
 <div class="i-12"><hr></div>
 <div class="infoNav">aaa</div>
 </div>-->
+
+
 <div class="segmented-control">
-  <a class="control-item active" href="#item1mobile" id="info-contact-link">
-    Contact us
-  </a>
-  <a class="control-item" href="#item2mobile" id="info-faq-link">
-    FAQ
-  </a>
+<a class="control-item active" href="#item1mobile" id="info-contact-link">
+Contact us
+</a>
+<a class="control-item" href="#item2mobile" id="info-faq-link">
+FAQ
+</a>
 </div>
 <div class="i-12"><hr></div>
 <h1 class="createEvent">Contact us</h1>
 <div class="i-12"><hr></div>
-<form class="createEvent" name="htmlform" method="post" action="html_form_send.php">
+<!--<form class="createEvent" name="htmlform" method="post" action="html_form_send.php">
 <input type="text" name="first_name" placeholder="Name"/>
 <input type="email" name="name" placeholder="Email"/>
 <input type="number" name="name" placeholder="Number"/>
@@ -30,4 +32,43 @@
 <button type="submit "class="btnContact btn-positive">Send</button>
 <button class="btnContact btn-negative">Cancel</button>
 </div>
+</form> -->
+
+<form id="contact-form" method="post" action="html_form_send.php"> 
+        <!--<h3>Get in touch</h3>
+        <h4>Fill in the form below, and we'll get back to you within 24 hours.</h4>-->
+        <div>
+                <label>
+                        <span></span>
+                        <input placeholder="Please enter your name*" name="first_name" type="text" tabindex="1" required autofocus>
+                </label>
+        </div>
+        <div>
+                <label>
+                        <span></span>
+                        <input placeholder="Please enter your email address*" name="email" type="email" tabindex="2" required>
+                </label>
+        </div>
+        <!--<div>
+                <label>
+                        <span></span>
+                        <input placeholder="Please enter your number*" type="tel" tabindex="3" required>
+                </label>
+        </div>
+        <div>
+                <label>
+                        <span></span>
+                        <input placeholder="Website* Begin with http://" type="url" tabindex="4" required>
+                </label>
+        </div>-->
+        <div>
+                <label>
+                        <span></span>
+                        <textarea placeholder="Include all the details you can*" name="comments" tabindex="5" required></textarea>
+                </label>
+        </div>
+        <div>
+                <button name="submit" type="submit" id="contact-submit">Send Email</button>
+        </div>
 </form>
+<script src="js/contact.js"></script>
