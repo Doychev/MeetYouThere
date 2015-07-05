@@ -1,2 +1,6 @@
 MeetYouThere/platforms/*
 Thumbs.db
+MeetYouThere/platforms/android/assets/www/js/router.js
+MeetYouThere/platforms/android/assets/www/js/views/pages/Dashboard.js
+MeetYouThere/platforms/android/assets/www/menu/Thumbs.db
+MeetYouThere/platforms/android/assets/www/lib/ratchet/fonts/ratchicons.ttf

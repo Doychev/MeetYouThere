@@ -14,7 +14,7 @@ define(function(require) {
       // load the precompiled template
       this.template = Utils.templates.createeventview;
       // here we can register to inTheDOM or removing events
-      this.listenTo(this, "inTheDOM", this.loadData);
+//      this.listenTo(this, "inTheDOM", this.loadData);
       // this.listenTo(this, "removing", functionName);
 
       // by convention, all the inner views of a view must be stored in this.subViews
@@ -39,18 +39,12 @@ define(function(require) {
         for (i = 0; i < form.length - 2; i++) {
           event.set(form.elements[i].name, form.elements[i].value);
         }
-		alert(1);
-		BaasBox.save(event, "events")
-		.done(function(res) {
-		alert(2);
+		  console.log(event);
+		BaasBox.save(event, "events").done(function(res) {
 			console.log("res ", res);
-		})
-		.fail(function(error) {
-		alert(3);
+		}).fail(function(error) {
 			console.log("error ", error);
 		});
-		alert(4);
-		
 	}
   });
 
