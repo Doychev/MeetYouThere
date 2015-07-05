@@ -29,7 +29,8 @@ define(function(require) {
     events: {
 		"tap .eventrow": "eventRow",
 		"tap #searchEventButton": "searchEvent",
-		"tap #createEventButton": "createEvent"
+		"tap #createEventButton": "createEvent",
+		"tap #loginView": "loginView"
     },
 
     render: function() {
@@ -49,8 +50,14 @@ define(function(require) {
       });
     },
 
+    loginView: function() {
+      Backbone.history.navigate("loginview", {
+        trigger: true
+      });
+    },
+
     eventRow: function(event) {
-		Backbone.history.navigate("singleeventview" + event.currentTarget.getAttribute('data-id'), {
+		Backbone.history.navigate("singleeventview/" + event.currentTarget.getAttribute('data-id'), {
 			trigger: true
 		});
 	},

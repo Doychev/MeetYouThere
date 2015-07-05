@@ -51,7 +51,7 @@ define(function(require) {
       "infoview": "infoView",
       "faqview": "faqView",
       "profileview": "profileView",
-      "loginview": "loginview"
+      "loginview": "loginView"
     },
 
     firstView: "dashboard",
@@ -200,7 +200,6 @@ define(function(require) {
       });
       // show the view
       this.changePage(page);
-		console.log("res ", res);
     },
 
     // load the structure view

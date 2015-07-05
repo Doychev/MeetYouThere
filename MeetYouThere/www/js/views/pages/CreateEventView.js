@@ -39,13 +39,15 @@ define(function(require) {
         for (i = 0; i < form.length - 2; i++) {
           event.set(form.elements[i].name, form.elements[i].value);
         }
-		  console.log(event);
 		BaasBox.save(event, "events").done(function(res) {
 			console.log("res ", res);
+			Backbone.history.navigate("singleeventview/" + res.id, {
+				trigger: true
+			});
 		}).fail(function(error) {
 			console.log("error ", error);
 		});
-	}
+	},	
   });
 
   return CreateEventView;

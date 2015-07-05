@@ -27,7 +27,8 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+		"tap .eventrow": "eventRow",
+		"tap #mapLink": "mapView"
     },
 
     render: function() {
@@ -35,7 +36,20 @@ define(function(require) {
       return this;
     },
 
+    eventRow: function(event) {
+		Backbone.history.navigate("singleeventview/" + event.currentTarget.getAttribute('data-id'), {
+			trigger: true
+		});
+	},
+
+	mapView: function() {
+		Backbone.history.navigate("map", {
+			trigger: true
+		});
+	},
+
     loadData: function() {
+      //load the data
       //load the data
 	spinner.spin(document.body);
 	BaasBox.loadCollectionWithParams("events", {page: 0, recordsPerPage: BaasBox.pagelength})
@@ -46,17 +60,23 @@ define(function(require) {
       var page = new EventView({
         model: model
       });
-	  var pageHtml = page.render();
-	  var bodyEl = $(".events");
-	  spinner.stop();
-	  bodyEl.append(pageHtml.el);
+		var pageHtml = page.render();
+		var bodyEl = $(".events");
+		bodyEl.append(pageHtml.el);
+
+		for (var i = 0; i < res.length; i++){
+			//put the id of the user as data for the div
+			var row = $(".eventrow")[i];
+			row.setAttribute('data-id',res[i].id);	  
+		}
+		
+		spinner.stop();
       })
       .fail(function(error) {
         console.log("error ", error);
-        alert(error);
+        alert(JSON.stringify(error, null, 4));
       })
     }
-
   });
 
   return EventsView;
