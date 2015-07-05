@@ -39,17 +39,17 @@ define(function(require) {
         for (i = 0; i < form.length - 2; i++) {
           event.set(form.elements[i].name, form.elements[i].value);
         }
-		alert(1);
+		
 		BaasBox.save(event, "events")
 		.done(function(res) {
-		alert(2);
+
 			console.log("res ", res);
 		})
 		.fail(function(error) {
-		alert(3);
+
 			console.log("error ", error);
 		});
-		alert(4);
+
 		
 	}
   });
