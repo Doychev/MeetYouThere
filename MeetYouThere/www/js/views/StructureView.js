@@ -14,10 +14,11 @@ define(function(require) {
       "tap #nav1": "dashboard",
       "tap #nav2": "map",
       "tap #nav3": "eventsView",
-      "tap #nav4": "friendsView",
+      "tap #nav4": "profileView",
       "tap #nav5": "infoView",
 	  "tap #topSearchButton": "eventsView",
-	  "tap #backButton": "goBack"
+	  "tap #backButton": "goBack",
+	  "tap #profileLink": "profileView"
     },
 
     initialize: function(options) {
@@ -62,8 +63,8 @@ define(function(require) {
       });
     },
 
-    friendsView: function(event) {
-      Backbone.history.navigate("friendsview", {
+    profileView: function(event) {
+      Backbone.history.navigate("profileview", {
         trigger: true
       });
     },

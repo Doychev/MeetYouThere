@@ -28,8 +28,42 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+      "tap #goToMap": "goToMap",
+	  "tap #loginButton": "showLoginForm",
+	  "tap #loginForm": "executeLogin",
+	  "tap #signupButton": "showSignupForm",
+	  "tap #signupForm": "executeSignup"
     },
+	
+    showLoginForm: function() {
+		$("#loginForm").show();
+		$("#signupForm").hide();
+		$("#loginInitial").hide();
+    },
+	
+	executeLogin: function() {
+		$("#structureHeader").show();
+		$("#structureNav").show();
+		//login
+		Backbone.history.navigate("dashboard", {
+			trigger: true
+		});		
+	},
+
+    showSignupForm: function() {
+		$("#signupForm").show();
+		$("#loginForm").hide();
+		$("#loginInitial").hide();
+    },
+	
+	executeSignup: function() {
+		$("#structureHeader").show();
+		$("#structureNav").show();
+		//signup and login
+		Backbone.history.navigate("dashboard", {
+			trigger: true
+		});		
+	},
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
