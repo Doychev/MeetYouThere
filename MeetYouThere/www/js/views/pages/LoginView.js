@@ -26,6 +26,7 @@ define(function(require) {
 
     id: "loginview",
     className: "i-g page",
+	
 
     events: {
       "tap #goToMap": "goToMap",
