@@ -54,7 +54,7 @@ define(function(require) {
       "loginview": "loginView"
     },
 
-    firstView: "dashboard",
+    firstView: "loginview",
 
     initialize: function(options) {
 		
@@ -78,6 +78,7 @@ define(function(require) {
 		BaasBox.login("admin", "admin")
 			.done(function (user) {
 				console.log("Logged in ", user);
+				document.getElementById("profileLink").textContent = user.username;
 				spinner.stop();
 		})
 			.fail(function (err) {
@@ -185,7 +186,7 @@ define(function(require) {
     },
 
     profileView: function() {
-	//this.structureView.setActiveTabBarElement("nav5");
+	this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
 	  var model = new MyModel();
       // create the view
@@ -199,6 +200,12 @@ define(function(require) {
     loginView: function() {
 	//this.structureView.setActiveTabBarElement("nav5");
       // create a model with an arbitrary attribute for testing the template engine
+	  
+	  $("#loginForm").hide();
+	  $("#signupForm").hide();
+	  $("#structureHeader").hide();
+	  $("#structureNav").hide();
+	  
 	  var model = new MyModel();
       // create the view
       var page = new LoginView({

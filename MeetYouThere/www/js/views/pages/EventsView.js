@@ -49,10 +49,55 @@ define(function(require) {
 		});
 	},
 
-	mapView: function() {
-		//take the params
-		//load the data
-		//show the data
+	filterEvents: function() {
+		spinner.spin(document.body);
+		var eventType = $("#eventType").val();
+		var eventLocation = $("#eventLocation").val();
+
+		var whereClause = "";
+		if (eventType.length > 0) {
+			whereClause = "type = \"" + eventType + "\"";			
+		}
+		if (eventLocation.length > 0) {
+			if (eventType.length > 0) {
+				whereClause = whereClause + " and location = \"" + eventLocation + "\"";
+			} else {
+				whereClause = "location = \"" + eventLocation + "\"";
+			}
+		}
+
+		console.log(whereClause);
+		BaasBox.loadCollectionWithParams("events", {where: whereClause}, {page: 0, recordsPerPage: BaasBox.pagelength})
+		  .done(function(res) {
+			  console.log(res);
+		  // create a model with an arbitrary attribute for testing the template engine
+		  var model = new Events(res);
+		  // create the view
+		  var page = new EventView({
+			model: model
+		  });
+		  var eventsBeforeFilter = $(".eventrow");
+			for (var i = 0; i < eventsBeforeFilter.length; i++) {
+				eventsBeforeFilter[i].parentElement.removeChild(eventsBeforeFilter[i]);
+			}
+			
+			var pageHtml = page.render();
+			var bodyEl = $(".events");
+			
+			bodyEl.append(pageHtml.el);
+
+			for (var i = 0; i < res.length; i++){
+				//put the id of the user as data for the div
+				var row = $(".eventrow")[i];
+				row.setAttribute('data-id',res[i].id);	  
+			}
+			
+			spinner.stop();
+		  })
+		  .fail(function(error) {
+			console.log("error ", error);
+			alert(JSON.stringify(error, null, 4));
+		  })
 	},
 
     loadData: function() {
