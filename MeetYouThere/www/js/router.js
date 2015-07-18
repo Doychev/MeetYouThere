@@ -58,7 +58,7 @@ define(function(require) {
 
     initialize: function(options) {
 		
-		BAASBOX_URL = "http://192.168.1.105:9000";
+		BAASBOX_URL = "http://192.168.1.105:9001";
 		BAASBOX_APP_CODE = "1234567890";
 
 
@@ -66,6 +66,14 @@ define(function(require) {
 		BaasBox.appcode = BAASBOX_APP_CODE;               //the application code of your server
 		
 		spinner.spin(document.body);
+
+/*		
+		BaasBox.signup("greeksucks", "123456").done(function (res) {
+			console.log("signup ", res);
+		}).fail(function (error) {
+			console.log("error ", error);
+		})
+*/		
 		//at the moment we log in as admin  
 		BaasBox.login("admin", "admin")
 			.done(function (user) {
@@ -150,7 +158,6 @@ define(function(require) {
       });
       // show the view
       this.changePage(page);
-		console.log("res ", res);
     },
 
     infoView: function() {
@@ -187,7 +194,6 @@ define(function(require) {
       });
       // show the view
       this.changePage(page);
-		console.log("res ", res);
     },
 
     loginView: function() {

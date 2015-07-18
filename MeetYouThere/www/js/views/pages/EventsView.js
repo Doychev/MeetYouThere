@@ -28,7 +28,8 @@ define(function(require) {
 
     events: {
 		"tap .eventrow": "eventRow",
-		"tap #mapLink": "mapView"
+		"tap #mapButton": "mapView",
+		"tap #filterButton": "filterEvents"
     },
 
     render: function() {
@@ -46,6 +47,12 @@ define(function(require) {
 		Backbone.history.navigate("map", {
 			trigger: true
 		});
+	},
+
+	mapView: function() {
+		//take the params
+		//load the data
+		//show the data
 	},
 
     loadData: function() {

@@ -16,6 +16,8 @@ define(function(require) {
       "tap #nav3": "eventsView",
       "tap #nav4": "friendsView",
       "tap #nav5": "infoView",
+	  "tap #topSearchButton": "eventsView",
+	  "tap #backButton": "goBack"
     },
 
     initialize: function(options) {
@@ -39,7 +41,7 @@ define(function(require) {
 
     // generic go-back function
     goBack: function() {
-      //window.history.back();
+      window.history.back();
     },
 
     setActiveTabBarElement: function(elementId) {
