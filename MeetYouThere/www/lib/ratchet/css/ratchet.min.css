@@ -1887,10 +1887,10 @@ background-image: url("mobile-app-bg.png");
 }
 
 
-#copyright {
-position:absolute;
-bottom:0;
-margin-left: 120px;
+div.copyright {
+text-align: center;
+width: 100%;
+position:absolute; bottom:0;
 }
 
 #logInButtons div {
