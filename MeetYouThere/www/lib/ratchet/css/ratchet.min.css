@@ -1879,3 +1879,27 @@ h1.createEvent a {
 :-ms-input-placeholder {
     color:#888;
 }
+
+div.login {
+width:100%;
+height:100%;
+background-image: url("mobile-app-bg.png");
+}
+
+
+#copyright {
+position:absolute;
+bottom:0;
+margin-left: 120px;
+}
+
+#logInButtons div {
+  display: inline-block;
+  padding: 10px;
+  float:left;
+}
+
+div.empty {
+width: 100%;
+height: 200px;
+}
