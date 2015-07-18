@@ -7,7 +7,9 @@ define(function(require) {
 		defaults: {
 			name: "No Name",
 			time: "No Time", 
-			location: "No Location"
+			location: "No Location",
+			type: "No Type",
+			peopleCount: "N/A"
 		},
 		    parse: function(response) {
         //unwrap the response from the server....
