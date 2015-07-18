@@ -3,6 +3,7 @@ define(function(require) {
   var Backbone = require("backbone");
   var Event = require("models/Event");
   var Utils = require("utils");
+  var spinner = require("spinner");
 
   var SingleEventView = Utils.Page.extend({
 
@@ -27,7 +28,18 @@ define(function(require) {
     },
 
 	loadData: function() {
-		console.log(this);
+		spinner.spin(document.body);
+		var thisCopy = this;
+		BaasBox.loadObject("events", this.model.id)
+			.done(function(res) {
+				thisCopy.model = new Event(res.data);
+				console.log(thisCopy.model);
+				spinner.stop();
+				thisCopy.render();
+			})
+			.fail(function(error) {
+				console.log("error ", error);
+			})
 	},
 	
     render: function() {

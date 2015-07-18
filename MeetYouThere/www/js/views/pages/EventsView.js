@@ -102,8 +102,7 @@ define(function(require) {
 
     loadData: function() {
       //load the data
-      //load the data
-	spinner.spin(document.body);
+    spinner.spin(document.body);
 	BaasBox.loadCollectionWithParams("events", {page: 0, recordsPerPage: BaasBox.pagelength})
       .done(function(res) {
       // create a model with an arbitrary attribute for testing the template engine
