@@ -58,7 +58,7 @@ define(function(require) {
 
     initialize: function(options) {
 		
-		BAASBOX_URL = "http://192.168.1.105:9000";
+		BAASBOX_URL = "http://192.168.1.105:9001";
 		BAASBOX_APP_CODE = "1234567890";
 
 
