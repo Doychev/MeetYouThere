@@ -4,6 +4,8 @@ define(function(require) {
   var Event = require("models/Event");
   var Utils = require("utils");
   var spinner = require("spinner");
+  var currentUser;
+  var attendingId;
 
   var SingleEventView = Utils.Page.extend({
 
@@ -24,18 +26,68 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+      "tap #attendEvent": "attendEvent",
+      "tap #cancelAttendEvent": "cancelAttendEvent"
     },
+	
+	attendEvent: function() {
+		var attendee = new Object();
+		attendee.username = currentUser.name;
+		attendee.eventId = this.model.id;     
+		BaasBox.save(attendee, "attendings")
+			.done(function(res) {
+				console.log("res ", res);
+			})
+			.fail(function(error) {
+				console.log("error ", error);
+			})
+	},
+	
+	cancelAttendEvent: function() {
+		BaasBox.deleteObject(attendingId, "attendings")
+			.done(function(res) {
+				console.log("res ", res);
+			})
+			.fail(function(error) {
+				console.log("error ", error);
+			})
+	},
 
 	loadData: function() {
 		spinner.spin(document.body);
 		var thisCopy = this;
+		var attendEvent = document.getElementById("attendEvent");
+		var cancelAttendEvent = document.getElementById("cancelAttendEvent");
 		BaasBox.loadObject("events", this.model.id)
 			.done(function(res) {
 				thisCopy.model = new Event(res.data);
-				console.log(thisCopy.model);
-				spinner.stop();
-				thisCopy.render();
+				BaasBox.fetchCurrentUser()
+					.done(function(res) {
+						currentUser = res.data.user;
+						var whereClause = "username = \"" + currentUser.name + "\" and eventId = \"" + thisCopy.model.id + "\"";
+						BaasBox.loadCollectionWithParams("attendings", {where: whereClause}, {page: 0, recordsPerPage: BaasBox.pagelength})
+						.done(function(res) {
+							if (res.length > 0) {
+								console.log("true");
+								attendEvent.style.visibility = "hidden";
+								cancelAttendEvent.style.visibility = "visible";
+								attendingId = res[0].id;
+							} else {
+								console.log("false");
+								attendEvent.style.visibility = "visible";
+								cancelAttendEvent.style.visibility = "hidden";
+							}
+							spinner.stop();
+							thisCopy.render();
+						})
+						.fail(function(error) {
+							console.log("error ", error);
+							alert(JSON.stringify(error, null, 4));
+						});
+					})
+					.fail(function(error) {
+						console.log("error ", error);
+					})
 			})
 			.fail(function(error) {
 				console.log("error ", error);

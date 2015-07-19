@@ -97,7 +97,7 @@ define(function(require) {
 		  .fail(function(error) {
 			console.log("error ", error);
 			alert(JSON.stringify(error, null, 4));
-		  })
+		  });
 	},
 
     loadData: function() {

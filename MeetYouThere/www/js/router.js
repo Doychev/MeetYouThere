@@ -65,8 +65,6 @@ define(function(require) {
 		BaasBox.setEndPoint(BAASBOX_URL); //the address of your BaasBox server
 		BaasBox.appcode = BAASBOX_APP_CODE;               //the application code of your server
 		
-		spinner.spin(document.body);
-
 /*		
 		BaasBox.signup("greeksucks", "123456").done(function (res) {
 			console.log("signup ", res);
@@ -74,16 +72,6 @@ define(function(require) {
 			console.log("error ", error);
 		})
 */		
-		//at the moment we log in as admin  
-		BaasBox.login("admin", "admin")
-			.done(function (user) {
-				console.log("Logged in ", user);
-				document.getElementById("profileLink").textContent = user.username;
-				spinner.stop();
-		})
-			.fail(function (err) {
-			  console.log("error ", err);
-		});
       this.currentView = undefined;
     },
 

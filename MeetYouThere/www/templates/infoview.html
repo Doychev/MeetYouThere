@@ -1,17 +1,3 @@
-<!--<div class="i-12">info view</div>
-<div class="i-12" id="info-faq-link">faqview</div>
-<div class="i-12" id="info-contact-link">contactview</div>
-<div class="i-6">
-<button class="myButton1">Contact us</button>
-</div>
-<div class="i-6">
-<button class="myButton2">FAQ</button>
-</div>
-<div class="i-12"><hr></div>
-<div class="infoNav">aaa</div>
-</div>-->
-
-
 <div class="segmented-control">
 <a class="control-item active" href="#item1mobile" id="info-contact-link">
 Contact us
@@ -23,30 +9,20 @@ FAQ
 <div class="i-12"><hr></div>
 <h1 class="createEvent">Contact us</h1>
 <div class="i-12"><hr></div>
-<!--<form class="createEvent" name="htmlform" method="post" action="html_form_send.php">
-<input type="text" name="first_name" placeholder="Name"/>
-<input type="email" name="name" placeholder="Email"/>
-<input type="number" name="name" placeholder="Number"/>
-<textarea name="textarea" rows="10" placeholder="Message"></textarea>
-<div class="i-12">
-<button type="submit "class="btnContact btn-positive">Send</button>
-<button class="btnContact btn-negative">Cancel</button>
-</div>
-</form> -->
 
-<form id="contact-form" method="post" action="html_form_send.php"> 
+<form id="contact-form"> 
         <!--<h3>Get in touch</h3>
         <h4>Fill in the form below, and we'll get back to you within 24 hours.</h4>-->
         <div>
                 <label>
                         <span></span>
-                        <input placeholder="Please enter your name*" name="first_name" type="text" tabindex="1" required>
+                        <input placeholder="Please enter your name*" name="first_name" id="ticketName" type="text" tabindex="1" required>
                 </label>
         </div>
         <div>
                 <label>
                         <span></span>
-                        <input placeholder="Please enter your email address*" name="email" type="email" tabindex="2" required>
+                        <input placeholder="Please enter your email address*" name="email" id="ticketEmail" type="email" tabindex="2" required>
                 </label>
         </div>
         <!--<div>
@@ -64,11 +40,12 @@ FAQ
         <div>
                 <label>
                         <span></span>
-                        <textarea placeholder="Include all the details you can*" name="comments" tabindex="5" required></textarea>
+                        <textarea placeholder="Include all the details you can*" name="comments" id="ticketComments" tabindex="5" required></textarea>
                 </label>
         </div>
-        <div>
-                <button name="submit" type="submit" id="contact-submit">Send Email</button>
-        </div>
+        <div id="submitTicket" class="btnCreate btn-positive">Send Ticket</div>
 </form>
+
+<div id="ticketSuccess" style="visibility: hidden">Your ticket was successfully submitted!</div>
+
 <script src="js/contact.js"></script>

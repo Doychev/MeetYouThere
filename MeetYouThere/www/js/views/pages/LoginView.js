@@ -3,6 +3,7 @@ define(function(require) {
   var Backbone = require("backbone");
   var MyModel = require("models/MyModel");
   var Utils = require("utils");
+  var spinner = require("spinner");
 
   var LoginView = Utils.Page.extend({
 
@@ -29,9 +30,8 @@ define(function(require) {
 	
 
     events: {
-      "tap #goToMap": "goToMap",
 	  "tap #loginButton": "showLoginForm",
-	  "tap #loginForm": "executeLogin",
+	  "tap #executeLoginButton": "executeLogin",
 	  "tap #signupButton": "showSignupForm",
 	  "tap #signupForm": "executeSignup"
     },
@@ -43,12 +43,21 @@ define(function(require) {
     },
 	
 	executeLogin: function() {
-		$("#structureHeader").show();
-		$("#structureNav").show();
-		//login
-		Backbone.history.navigate("dashboard", {
-			trigger: true
-		});		
+		spinner.spin(document.body);		
+		BaasBox.login($("#username").val(), $("#password").val())
+			.done(function (user) {
+				$("#structureHeader").show();
+				$("#structureNav").show();
+				Backbone.history.navigate("dashboard", {
+					trigger: true
+				});		
+				console.log("Logged in ", user);
+				document.getElementById("profileLink").textContent = user.username;
+				spinner.stop();
+		})
+			.fail(function (err) {
+			  console.log("error ", err);
+		});
 	},
 
     showSignupForm: function() {
@@ -70,12 +79,6 @@ define(function(require) {
       $(this.el).html(this.template(this.model.toJSON()));
       return this;
     },
-
-    goToMap: function(e) {
-      Backbone.history.navigate("map", {
-        trigger: true
-      });
-    }
   });
 
   return LoginView;

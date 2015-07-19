@@ -3,6 +3,7 @@ define(function(require) {
   var Backbone = require("backbone");
   var MyModel = require("models/MyModel");
   var Utils = require("utils");
+  var spinner = require("spinner");
 
   var InfoView = Utils.Page.extend({
 
@@ -30,6 +31,7 @@ define(function(require) {
     events: {
       "tap #info-faq-link": "faqView",
       "tap #info-contact-link": "infoView",
+	  "tap #submitTicket": "submitTicket"
     },
 
     render: function() {
@@ -49,8 +51,28 @@ define(function(require) {
       });
     }, 
 	
-
-
+    submitTicket: function(event) {
+		spinner.spin(document.body);
+		var ticket = new Object();
+		ticket.name = document.getElementById("ticketName").value;
+		ticket.email = document.getElementById("ticketEmail").value;     
+		ticket.comments = document.getElementById("ticketComments").value;
+		var contactForm = document.getElementById("contact-form");
+		var ticketSuccess = document.getElementById("ticketSuccess");
+		BaasBox.save(ticket, "tickets")
+			.done(function(res) {
+				console.log("res ", res);
+				spinner.stop();
+				ticketSuccess.style.visibility = "visible";
+				contactForm.style.visibility = "hidden";
+				//$("#contactForm").hide();
+				//$("#ticketSuccess").show();
+				//show success
+			})
+			.fail(function(error) {
+				console.log("error ", error);
+			})
+    }, 
   });
 
   return InfoView;
