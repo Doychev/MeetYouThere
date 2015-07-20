@@ -28,7 +28,8 @@ define(function(require) {
     className: "i-g page",
 
     events: {
-      "tap #goToMap": "goToMap"
+      "tap #goToMap": "goToMap",
+	  "tap #message-view": "goToMessage"
     },
 
     render: function() {
@@ -41,6 +42,14 @@ define(function(require) {
         trigger: true
       });
     }
+	
+	/*goToMessage: function(e) {
+      Backbone.history.navigate("message", {
+        trigger: true
+      });
+    }*/
+	
+	
   });
 
   return ProfileView;
