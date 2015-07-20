@@ -29,8 +29,7 @@ define(function(require) {
     events: {
 		"tap .eventrow": "eventRow",
 		"tap #searchEventButton": "searchEvent",
-		"tap #createEventButton": "createEvent",
-		"tap #loginView": "loginView"
+		"tap #createEventButton": "createEvent"
     },
 
     render: function() {
@@ -46,12 +45,6 @@ define(function(require) {
 
     createEvent: function() {
       Backbone.history.navigate("createeventview", {
-        trigger: true
-      });
-    },
-
-    loginView: function() {
-      Backbone.history.navigate("loginview", {
         trigger: true
       });
     },

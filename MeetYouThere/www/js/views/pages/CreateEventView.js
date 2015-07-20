@@ -36,8 +36,10 @@ define(function(require) {
 		var form = document.getElementById("createEventForm");
 		var event = new Event();
         var i;
-        for (i = 0; i < form.length - 2; i++) {
+        for (i = 0; i < form.length; i++) {
           event.set(form.elements[i].name, form.elements[i].value);
+		  console.log(form.elements[i].name);
+		  console.log(form.elements[i].value);
         }
 		BaasBox.save(event, "events").done(function(res) {
 			console.log("res ", res);
