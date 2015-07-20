@@ -69,13 +69,29 @@ define(function(require) {
     },
 	
 	executeSignup: function() {
-		$("#structureHeader").show();
-		$("#structureNav").show();
-		//signup and login
-		console.log("asd");
-		Backbone.history.navigate("dashboard", {
-			trigger: true
-		});		
+		spinner.spin(document.body);		
+		var username = document.getElementById("name");
+//		var password = document.getElementById("password");
+		var props = [document.getElementById("placeBirth").value, 
+					document.getElementById("placeLiving").value, 
+					document.getElementById("mobile").value, 
+					document.getElementById("interests").value];
+		console.log(props);
+		
+		BaasBox.signup(username, "password", {}, {}, {}, props)
+			.done(function (res) {
+				$("#structureHeader").show();
+				$("#structureNav").show();
+				document.getElementById("content").style.padding = padding;
+				console.log(res);
+				spinner.stop();
+				Backbone.history.navigate("dashboard", {
+					trigger: true
+				});		
+			})
+			.fail(function (error) {
+				console.log("error ", error);
+			})
 	},
 
     render: function() {
