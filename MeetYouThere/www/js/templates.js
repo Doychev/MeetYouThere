@@ -19,5 +19,6 @@ define({
     infoview: "templates/infoview.html",
     faqview: "templates/faqview.html",
     profileview: "templates/profileview.html",
+    messageview: "templates/messageview.html",
     loginview: "templates/loginview.html"
 });

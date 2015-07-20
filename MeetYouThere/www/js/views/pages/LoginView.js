@@ -4,6 +4,7 @@ define(function(require) {
   var MyModel = require("models/MyModel");
   var Utils = require("utils");
   var spinner = require("spinner");
+  var padding;
 
   var LoginView = Utils.Page.extend({
 
@@ -46,6 +47,7 @@ define(function(require) {
 		spinner.spin(document.body);		
 		BaasBox.login($("#username").val(), $("#password").val())
 			.done(function (user) {
+				document.getElementById("content").style.padding = padding;
 				$("#structureHeader").show();
 				$("#structureNav").show();
 				Backbone.history.navigate("dashboard", {
@@ -77,6 +79,8 @@ define(function(require) {
 
     render: function() {
       $(this.el).html(this.template(this.model.toJSON()));
+	  padding = document.getElementById("content").style.padding;
+	  document.getElementById("content").style.padding = 0;
       return this;
     },
   });

@@ -18,6 +18,7 @@ define(function(require) {
   var InfoView = require("views/pages/InfoView");
   var FaqView = require("views/pages/FaqView");
   var ProfileView = require("views/pages/ProfileView");
+  var MessageView = require("views/pages/MessageView");
   var LoginView = require("views/pages/LoginView");
   var spinner = require("spinner");
   
@@ -51,6 +52,7 @@ define(function(require) {
       "infoview": "infoView",
       "faqview": "faqView",
       "profileview": "profileView",
+      "messageview": "messageView",
       "loginview": "loginView"
     },
 
@@ -179,6 +181,18 @@ define(function(require) {
 	  var model = new MyModel();
       // create the view
       var page = new ProfileView({
+        model: model
+      });
+      // show the view
+      this.changePage(page);
+    },
+
+    messageView: function() {
+	this.structureView.setActiveTabBarElement("nav4");
+      // create a model with an arbitrary attribute for testing the template engine
+	  var model = new MyModel();
+      // create the view
+      var page = new MessageView({
         model: model
       });
       // show the view
