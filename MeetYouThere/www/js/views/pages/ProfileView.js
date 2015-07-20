@@ -3,6 +3,7 @@ define(function(require) {
   var Backbone = require("backbone");
   var MyModel = require("models/MyModel");
   var Utils = require("utils");
+  var spinner = require("spinner");
 
   var ProfileView = Utils.Page.extend({
 
@@ -10,15 +11,11 @@ define(function(require) {
 
     model: MyModel,
 
-    initialize: function() {
+	initialize: function() {
       // load the precompiled template
       this.template = Utils.templates.profileview;
       // here we can register to inTheDOM or removing events
-      // this.listenTo(this, "inTheDOM", function() {
-      //   $('#content').on("swipe", function(data){
-      //     console.log(data);
-      //   });
-      // });
+      this.listenTo(this, "inTheDOM", this.loadData);
       // this.listenTo(this, "removing", functionName);
 
       // by convention, all the inner views of a view must be stored in this.subViews
@@ -42,6 +39,20 @@ define(function(require) {
         trigger: true
       });
     },
+	
+	loadData: function() {
+		spinner.spin(document.body);
+		var thisCopy = this;
+		var profileInfo = document.getElementsByClassName("profileInfo");
+		BaasBox.fetchCurrentUser()
+			.done(function(res) {
+				console.log("res ", res['data']);
+				spinner.stop();
+			})
+			.fail(function(error) {
+				console.log("error ", error);
+			})
+	},
 	
 	messageView: function(e) {
       Backbone.history.navigate("messageview", {

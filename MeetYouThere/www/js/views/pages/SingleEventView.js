@@ -68,15 +68,15 @@ define(function(require) {
 						BaasBox.loadCollectionWithParams("attendings", {where: whereClause}, {page: 0, recordsPerPage: BaasBox.pagelength})
 						.done(function(res) {
 							if (res.length > 0) {
-								console.log("true");
 								attendEvent.style.visibility = "hidden";
 								cancelAttendEvent.style.visibility = "visible";
 								attendingId = res[0].id;
 							} else {
-								console.log("false");
 								attendEvent.style.visibility = "visible";
 								cancelAttendEvent.style.visibility = "hidden";
 							}
+							console.log("cancelAttendEvent: " + cancelAttendEvent.style.visibility);
+							console.log("attendEvent: " + attendEvent.style.visibility);
 							spinner.stop();
 							thisCopy.render();
 						})

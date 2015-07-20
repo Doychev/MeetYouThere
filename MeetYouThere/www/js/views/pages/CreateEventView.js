@@ -38,8 +38,6 @@ define(function(require) {
         var i;
         for (i = 0; i < form.length; i++) {
           event.set(form.elements[i].name, form.elements[i].value);
-		  console.log(form.elements[i].name);
-		  console.log(form.elements[i].value);
         }
 		BaasBox.save(event, "events").done(function(res) {
 			console.log("res ", res);
