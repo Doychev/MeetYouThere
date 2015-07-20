@@ -34,7 +34,7 @@ define(function(require) {
 	  "tap #loginButton": "showLoginForm",
 	  "tap #executeLoginButton": "executeLogin",
 	  "tap #signupButton": "showSignupForm",
-	  "tap #signupForm": "executeSignup"
+	  "tap #signupFormButton": "executeSignup"
     },
 	
     showLoginForm: function() {
@@ -72,6 +72,7 @@ define(function(require) {
 		$("#structureHeader").show();
 		$("#structureNav").show();
 		//signup and login
+		console.log("asd");
 		Backbone.history.navigate("dashboard", {
 			trigger: true
 		});		

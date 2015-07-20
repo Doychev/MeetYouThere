@@ -5,9 +5,12 @@ define(function(require) {
 	var ProfileModel = Backbone.Model.extend({
 		constructorName: "ProfileModel",
 		defaults: {
-			name: "No Name",
-			tel: "No Telephone", 
-			email: "No Email"
+			name: "N/A",
+			mobile: "N/A", 
+			dateBirth: "N/A",
+			placeBirth: "N/A",
+			placeLiving: "N/A",
+			interests: "N/A"
 		},
 		    parse: function(response) {
         //unwrap the response from the server....

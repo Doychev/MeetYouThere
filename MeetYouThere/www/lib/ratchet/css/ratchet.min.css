@@ -1987,15 +1987,15 @@ height: 108px;
 background-image: url("event.png");
 }
 
-#singup-form input[type="text"],
-#singup-form input[type="email"],
-#singup-form input[type="tel"],
-#singup-form input[type="url"],
-#singup-form textarea,
-#singup-form button[type="submit"] {
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="tel"],
+#signup-form input[type="url"],
+#signup-form textarea,
+#signup-form button[type="submit"] {
 	font:400 12px/12px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-#singup-form {
+#signup-form {
 	text-shadow:0 1px 0 #FFF;
 	border-radius:4px;
 	-webkit-border-radius:4px;
@@ -2004,28 +2004,28 @@ background-image: url("event.png");
 	padding:25px;
 	margin: 20px 0px 0px 0px;
 }
-#singup-form h3 {
+#signup-form h3 {
 	color:#991D57;
 	display:block;
 	font-size:28px;
 }
-#singup-form h4 {
+#signup-form h4 {
 	margin:5px 0 15px;
 	display:block;
 	font-size:13px;
 }
-#singup-form label span {
+#signup-form label span {
 	cursor:pointer;
 	color:#991D57;
 	display:block;
 	margin:5px 0;
 	font-weight:900;
 }
-#singup-form input[type="text"],
-#singup-form input[type="email"],
-#singup-form input[type="tel"],
-#singup-form input[type="url"],
-#singup-form textarea {
+#signup-form input[type="text"],
+#signup-form input[type="email"],
+#signup-form input[type="tel"],
+#signup-form input[type="url"],
+#signup-form textarea {
 	width:100%;
 	box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
 	-webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
@@ -2036,21 +2036,21 @@ background-image: url("event.png");
 	padding:10px;
 	border-radius:5px;
 }
-#singup-form input[type="text"]:hover,
-#singup-form input[type="email"]:hover,
-#singup-form input[type="tel"]:hover,
-#singup-form input[type="url"]:hover,
-#singup-form textarea:hover {
+#signup-form input[type="text"]:hover,
+#signup-form input[type="email"]:hover,
+#signup-form input[type="tel"]:hover,
+#signup-form input[type="url"]:hover,
+#signup-form textarea:hover {
 	-webkit-transition:border-color 0.3s ease-in-out;
 	-moz-transition:border-color 0.3s ease-in-out;
 	transition:border-color 0.3s ease-in-out;
 	border:1px solid #AAA;
 }
-#singup-form textarea {
+#signup-form textarea {
 	height:100px;
 	max-width:100%;
 }
-#singup-form button[type="submit"] {
+#signup-form button[type="submit"] {
 	cursor:pointer;
 	width:100%;
 	border:none;
@@ -2064,7 +2064,7 @@ background-image: url("event.png");
 	padding:10px;
 	border-radius:5px;
 }
-#singup-form button[type="submit"]:hover {
+#signup-form button[type="submit"]:hover {
 	background-image:linear-gradient(bottom, #9C215A 0%, #A82767 52%);
 	background-image:-moz-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
 	background-image:-webkit-linear-gradient(bottom, #9C215A 0%, #A82767 52%);
@@ -2072,11 +2072,11 @@ background-image: url("event.png");
 	-moz-transition:background 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out;
 }
-#singup-form button[type="submit"]:active {
+#signup-form button[type="submit"]:active {
 	box-shadow:inset 0 1px 3px rgba(0,0,0,0.5);
 }
-#singup-form input:focus,
-#singup-form textarea:focus {
+#signup-form input:focus,
+#signup-form textarea:focus {
 	outline:0;
 	border:1px solid #999;
 }

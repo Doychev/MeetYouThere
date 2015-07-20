@@ -178,7 +178,7 @@ define(function(require) {
     profileView: function() {
 	this.structureView.setActiveTabBarElement("nav4");
       // create a model with an arbitrary attribute for testing the template engine
-	  var model = new MyModel();
+	  var model = new ProfileModel();
       // create the view
       var page = new ProfileView({
         model: model

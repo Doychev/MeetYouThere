@@ -1,7 +1,7 @@
 define(function(require) {
 
   var Backbone = require("backbone");
-  var MyModel = require("models/MyModel");
+  var ProfileModel = require("models/ProfileModel");
   var Utils = require("utils");
   var spinner = require("spinner");
 
@@ -9,7 +9,7 @@ define(function(require) {
 
     constructorName: "ProfileView",
 
-    model: MyModel,
+    model: ProfileModel,
 
 	initialize: function() {
       // load the precompiled template
@@ -30,8 +30,8 @@ define(function(require) {
     },
 
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
-      return this;
+		$(this.el).html(this.template(this.model.toJSON()));
+		return this;
     },
 
     goToMap: function(e) {
@@ -46,7 +46,8 @@ define(function(require) {
 		var profileInfo = document.getElementsByClassName("profileInfo");
 		BaasBox.fetchCurrentUser()
 			.done(function(res) {
-				console.log("res ", res['data']);
+				thisCopy.model = new ProfileModel(res['data'].visibleByAnonymousUsers);
+				thisCopy.render();
 				spinner.stop();
 			})
 			.fail(function(error) {
