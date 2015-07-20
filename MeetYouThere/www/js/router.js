@@ -113,7 +113,7 @@ define(function(require) {
 	
     singleEventView: function(id) {
 		// highlight the nav1 tab bar element as the current one
-      //this.structureView.setActiveTabBarElement("nav3");
+		this.structureView.setActiveTabBarElement("nav3");
 		// create a model with an arbitrary attribute for testing the template engine
 	  var model = new Event({
 			id: id
