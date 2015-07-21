@@ -61,6 +61,7 @@ define(function(require) {
 		BaasBox.loadObject("events", this.model.id)
 			.done(function(res) {
 				thisCopy.model = new Event(res.data);
+				thisCopy.render();
 				BaasBox.fetchCurrentUser()
 					.done(function(res) {
 						currentUser = res.data.user;

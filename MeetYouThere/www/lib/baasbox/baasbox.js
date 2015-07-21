@@ -193,7 +193,7 @@ var BaasBox = (function() {
         }
         var req = $.ajax({
           url: url,
-          method: 'POST',
+          type: 'POST',
           contentType: 'application/json',
           data: JSON.stringify(postData)
         })
@@ -315,7 +315,7 @@ var BaasBox = (function() {
       deleteObject: function(objectId, collection) {
         return $.ajax({
           url: BaasBox.endPoint + '/document/' + collection + '/' + objectId,
-          method: 'DELETE'
+          type: 'DELETE'
         });
       },
 
