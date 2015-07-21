@@ -68,17 +68,14 @@ define(function(require) {
 						BaasBox.loadCollectionWithParams("attendings", {where: whereClause}, {page: 0, recordsPerPage: BaasBox.pagelength})
 						.done(function(res) {
 							if (res.length > 0) {
-								attendEvent.style.visibility = "hidden";
-								cancelAttendEvent.style.visibility = "visible";
+								attendEvent.style.display = "none";
+								cancelAttendEvent.style.display = "block";
 								attendingId = res[0].id;
 							} else {
-								attendEvent.style.visibility = "visible";
-								cancelAttendEvent.style.visibility = "hidden";
+								attendEvent.style.display = "block";
+								cancelAttendEvent.style.display = "none";
 							}
-							console.log("cancelAttendEvent: " + cancelAttendEvent.style.visibility);
-							console.log("attendEvent: " + attendEvent.style.visibility);
 							spinner.stop();
-							thisCopy.render();
 						})
 						.fail(function(error) {
 							console.log("error ", error);
